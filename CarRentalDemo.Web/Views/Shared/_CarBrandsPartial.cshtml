@@ -1,0 +1,64 @@
+﻿@model PagedList.IPagedList<CarRentalDemo.Entities.CarBrand>
+@using PagedList.Mvc
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+<div class="container rent-content">
+    @using (Html.BeginForm("Index", "Admin", FormMethod.Get))
+    {
+        <p>
+            Find by Brand: <br /> @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
+            <input type="submit" value="Search" class="btn btn-success" />
+        </p>
+    }
+</div>
+<br />
+<div class="container rent-content">
+
+    <h2>Car Brands</h2>
+    <br />
+    @if (User.IsInRole("Admin"))
+    {
+        <p class="h2">
+            @Html.ActionLink("Create New", "Create", "CarBrands", null, htmlAttributes: new { @style = "color:green" })
+        </p>
+    }
+    <br />
+
+    <div class="container">
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    @*<div>
+                        @Html.DisplayFor(modelItem => item.BrendName)
+                    </div>
+                    <br />*@
+                    <div> 
+                        @Html.ActionLink(" ", "CarsPerBrand","Cars",
+                       routeValues: new { id = item.CarBrendID},
+                       htmlAttributes: new
+                       {
+                           @class = "logo-link",
+                           @style = "background-image: url(" + @Url.Content(item.BrendImage) + ")"
+                       })
+                    </div>
+                    <br />
+                    <div>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <div>
+                                @Html.ActionLink("Edit", "Edit", "CarBrands", routeValues: new { id = item.CarBrendID }, htmlAttributes: new { @style = "color:green;font-size:150%" }) |
+                                @Html.ActionLink("Delete", "Delete", "CarBrands", routeValues: new { id = item.CarBrendID }, htmlAttributes: new { @style = "color:green;font-size:150%" })
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <br />
+
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+    @Html.PagedListPager(Model, page => Url.Action("Index",
+    new { page, currentFilter = ViewBag.CurrentFilter }))
+</div>

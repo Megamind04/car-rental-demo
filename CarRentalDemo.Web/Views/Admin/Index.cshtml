@@ -1,0 +1,10 @@
+﻿@model CarRentalDemo.Web.Models.AdminViewModels
+@{
+    ViewBag.Title = "Index";
+}
+
+@Html.Partial("_CarBrandsPartial",Model.CarBrands)
+
+<br />
+
+@Html.Partial("_CarsPartial",Model.Cars)

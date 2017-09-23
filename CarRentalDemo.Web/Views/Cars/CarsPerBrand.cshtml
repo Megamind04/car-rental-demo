@@ -1,0 +1,8 @@
+﻿@model CarRentalDemo.Web.Models.SelectedCarsPerBrand
+@{
+    ViewBag.Title = "CarsPerBrand";
+}
+
+<h2>CarsPerBrand</h2>
+
+@Html.Partial("_CarsPartial", Model.SelectedCars)

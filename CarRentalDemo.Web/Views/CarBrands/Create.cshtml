@@ -1,0 +1,58 @@
+﻿@model CarRentalDemo.Entities.CarBrand
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="container rent-content">
+
+    <h2>Create</h2>
+
+    <br />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>CarBrand</h4>
+           
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.BrendName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BrendName, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Brande Name" } })
+                    @Html.ValidationMessageFor(model => model.BrendName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+               @* @Html.LabelFor(model => model.BrendImage, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.BrendImage, new { htmlAttributes = new { @class = "form-control", @placeholder = "Enter Link Image" } })
+                    @Html.ValidationMessageFor(model => model.BrendImage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <br />
+
+    <div>
+        <p>
+            @Html.ActionLink("Back to List", "Index", "Admin", routeValues: null, htmlAttributes: new { @style = "color:green" })
+        </p>
+    </div>
+
+    <br />
+
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
