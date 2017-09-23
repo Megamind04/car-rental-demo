@@ -203,6 +203,7 @@
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RentsController.cs" />
     <Compile Include="DataContexts\CarRentalDemoDb.cs" />
     <Compile Include="DataContexts\CarRentalMigrations\201709201106073_InitialCreate.cs" />
     <Compile Include="DataContexts\CarRentalMigrations\201709201106073_InitialCreate.Designer.cs">
@@ -222,6 +223,7 @@
     <Compile Include="Models\AdminViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SelectedCarForRentModel.cs" />
     <Compile Include="Models\SelectedCarsPerBrand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -304,6 +306,9 @@
     <Content Include="Views\Cars\Edit.cshtml" />
     <Content Include="Views\Cars\Delete.cshtml" />
     <Content Include="Views\Cars\CarsPerBrand.cshtml" />
+    <Content Include="Views\Rents\SelectedCar.cshtml" />
+    <Content Include="Views\Shared\_CarDetailsPartial.cshtml" />
+    <Content Include="Views\Rents\RentCar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

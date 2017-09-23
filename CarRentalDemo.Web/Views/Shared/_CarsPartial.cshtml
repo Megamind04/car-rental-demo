@@ -40,7 +40,7 @@
                     </div>
 
                     <div>
-                        <strong>Available For Rent : </strong> @((item.Available == null) ? "NA" : (item.Available == true) ? "Available" : "Unavailable")
+                        <strong>Available For Rent : </strong> @(item.Available == true ? "Available" : "Unavailable")
                     </div>
                     <br />
                     <div>
@@ -51,6 +51,10 @@
                                 @Html.ActionLink("Delete", "Delete", "Cars", routeValues: new { id = item.CarID }, htmlAttributes: new { @style = "color:green;font-size:150%" })
                             </div>
                         }
+
+                    </div>
+                    <div>
+                        @Html.ActionLink("Rent", "SelectedCar", "Rents",new { id=item.CarID}, htmlAttributes: new { @style = "color:black", @class = "btn btn-danger btn-lg" })
                     </div>
                 </div>
 

@@ -3,6 +3,13 @@
     ViewBag.Title = "CarsPerBrand";
 }
 
-<h2>CarsPerBrand</h2>
+<div class="container rent-content">
+    <h2>Cars Per Brand</h2>
+</div>
+<br />
+<div class="container rent-content">
+    <h3>You Selected @Html.DisplayFor(m => m.SelectedCarBrand.BrendName)</h3>
+</div>
+<br />
 
 @Html.Partial("_CarsPartial", Model.SelectedCars)

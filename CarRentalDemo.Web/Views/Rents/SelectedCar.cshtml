@@ -1,0 +1,47 @@
+﻿@model CarRentalDemo.Web.Models.SelectedCarForRentModel
+@{
+    ViewBag.Title = "SelectedCar";
+}
+
+<div class="container rent-content">
+    <h2>You have selected this car for rent</h2>
+</div>
+<br />
+<div>
+    @Html.Partial("_CarDetailsPartial", Model.SelectedCar)
+</div>
+<br />
+<div class="container rent-content">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        <br />
+
+        <div class="form-horizontal">
+            @Html.HiddenFor(model => model.RentedCar.CarID)
+            @Html.HiddenFor(model => model.SelectedCar.CarID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RentedCar.DateOfRent, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RentedCar.DateOfRent, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RentedCar.DateOfRent, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.RentedCar.DateOfReturn, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.RentedCar.DateOfReturn, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.RentedCar.DateOfReturn, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Next" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    }
+</div>

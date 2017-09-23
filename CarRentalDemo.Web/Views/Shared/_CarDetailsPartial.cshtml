@@ -1,0 +1,31 @@
+﻿@model CarRentalDemo.Entities.Car
+
+<div class="container rent-content">
+    <div class="col-md-4">
+        <br />
+        <div>
+            <strong>Brand : </strong> @Html.DisplayFor(modelitem => modelitem.CarBrand.BrendName)
+        </div>
+
+        <div class="form-group">
+            <strong>Description : </strong> @Html.DisplayFor(modelitem => modelitem.CarDescription)
+        </div>
+
+        <div>
+            <img src="@Url.Content(Model.CarImage)" style="max-height: 150px" class="img-responsive" />
+        </div>
+
+        <div>
+            <strong>Price Per Day  : </strong> @Html.DisplayFor(modelitem => modelitem.PricePerDay)
+        </div>
+
+        <div>
+            <strong>Registration Date : </strong> @Html.DisplayFor(modelitem => modelitem.CarRegistrationDate)
+        </div>
+
+        <div>
+            <strong>Available For Rent : </strong> @(Model.Available == true ? "Available" : "Unavailable")
+        </div>
+        <br />
+    </div>
+</div>
