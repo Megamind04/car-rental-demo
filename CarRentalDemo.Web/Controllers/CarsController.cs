@@ -10,7 +10,7 @@ using CarRentalDemo.Entities;
 using PagedList;
 using System.Net;
 using CarRentalDemo.Web.Models;
-using PagedList;
+
 
 namespace CarRentalDemo.Web.Controllers
 {

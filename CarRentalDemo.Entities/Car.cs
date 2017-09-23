@@ -25,6 +25,7 @@ namespace CarRentalDemo.Entities
 
         [Required(ErrorMessage = "Please Enter Registration Date")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Registration Date")]
         public DateTime? CarRegistrationDate { get; set; }
 
