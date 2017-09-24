@@ -27,6 +27,7 @@ namespace CarRentalDemo.Web.Controllers
             }
             Car selectedCar = contextDb.Cars.Find(id);
             Rent rentCar = new Rent() { CarID = selectedCar.CarID };
+            rentCar.CreateDate = DateTime.Now;
 
             SelectedCarForRentModel selectedCarForRent = new SelectedCarForRentModel() { SelectedCar = selectedCar, RentedCar = rentCar };
             return View(selectedCarForRent);

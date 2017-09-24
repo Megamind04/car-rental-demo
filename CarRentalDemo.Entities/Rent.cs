@@ -20,6 +20,11 @@ namespace CarRentalDemo.Entities
         [Required(ErrorMessage = "Please Select a Date.")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        public DateTime? CreateDate { get; set; }
+
+        [Required(ErrorMessage = "Please Select a Date.")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DisplayName("Date of Rent")]
         //[ValidationDate]
         public DateTime? DateOfRent { get; set; }
@@ -50,7 +55,7 @@ namespace CarRentalDemo.Entities
                 yield return new ValidationResult("Date of return must be after date of rent.", new[] { "DateOfReturn" });
             }
 
-            if (DateOfRent < DateTime.Now)
+            if (DateOfRent < CreateDate)
             {
                 yield return new ValidationResult("Rent date can not be greater than current date.", new[] { "DateOfRent" });
             }

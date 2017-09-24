@@ -209,6 +209,10 @@
     <Compile Include="DataContexts\CarRentalMigrations\201709201106073_InitialCreate.Designer.cs">
       <DependentUpon>201709201106073_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\CarRentalMigrations\201709241604401_CreateDameDate.cs" />
+    <Compile Include="DataContexts\CarRentalMigrations\201709241604401_CreateDameDate.Designer.cs">
+      <DependentUpon>201709241604401_CreateDameDate.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\CarRentalMigrations\Configuration.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201709201104253_InitialCreate.cs" />
@@ -297,7 +301,6 @@
     <Content Include="Views\Shared\_CarBrandsPartial.cshtml" />
     <Content Include="Views\CarBrands\Index.cshtml" />
     <Content Include="Views\CarBrands\Create.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\CarBrands\Edit.cshtml" />
     <Content Include="Views\CarBrands\Delete.cshtml" />
     <Content Include="Views\Shared\_CarsPartial.cshtml" />
@@ -309,6 +312,7 @@
     <Content Include="Views\Rents\SelectedCar.cshtml" />
     <Content Include="Views\Shared\_CarDetailsPartial.cshtml" />
     <Content Include="Views\Rents\RentCar.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -335,6 +339,9 @@
   <ItemGroup>
     <EmbeddedResource Include="DataContexts\CarRentalMigrations\201709201106073_InitialCreate.resx">
       <DependentUpon>201709201106073_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\CarRentalMigrations\201709241604401_CreateDameDate.resx">
+      <DependentUpon>201709241604401_CreateDameDate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201709201104253_InitialCreate.resx">
       <DependentUpon>201709201104253_InitialCreate.cs</DependentUpon>

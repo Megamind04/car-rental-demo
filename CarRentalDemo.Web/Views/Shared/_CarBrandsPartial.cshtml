@@ -2,7 +2,7 @@
 @using PagedList.Mvc
 <link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 <div class="container rent-content">
-    @using (Html.BeginForm("Index", "Admin", FormMethod.Get))
+    @using (Html.BeginForm("Index", "CarBrands", FormMethod.Get))
     {
         <p>
             Find by Brand: <br /> @Html.TextBox("searchString", ViewBag.CurrentFilter as string)
