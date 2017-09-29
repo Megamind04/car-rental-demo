@@ -27,21 +27,18 @@
         <div class="row">
             @foreach (var item in Model)
             {
-                <div class="col-md-4">
-                    @*<div>
-                        @Html.DisplayFor(modelItem => item.BrendName)
-                    </div>
-                    <br />*@
-                    <div> 
-                        @Html.ActionLink(" ", "CarsPerBrand","Cars",
-                       routeValues: new { id = item.CarBrendID},
+                <div class="col-md-4 ">
+
+                    <div>
+                        @Html.ActionLink(" ", "CarsPerBrand", "Cars",
+                       routeValues: new { id = item.CarBrendID },
                        htmlAttributes: new
                        {
                            @class = "logo-link",
-                           @style = "background-image: url(" + @Url.Content(item.BrendImage) + ")"
+                           @style = "background-image: url(" + @Url.Content(item.BrendImage) + ");max-height: 150px"
                        })
                     </div>
-                    <br />
+
                     <div>
                         @if (User.IsInRole("Admin"))
                         {

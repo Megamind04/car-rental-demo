@@ -34,7 +34,8 @@ textarea {
     background-repeat: no-repeat;
     display: block;
     border: none;
-    position: relative;
+    position:initial;
     background-size: contain;
     z-index: 2;
 }
+

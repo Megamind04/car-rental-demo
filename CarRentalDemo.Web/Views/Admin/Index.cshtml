@@ -7,16 +7,16 @@
     <h2>Index</h2>
 
 
-    <p>
+    @*<p>
         @Html.ActionLink("Create New", "Create")
-    </p>
+    </p>*@
     <table class="table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Car.CarDescription)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CarRentalUser.FirstName)
+                @Html.DisplayNameFor(model => model.CarRentalUser.FullName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.DateOfRent)
@@ -43,7 +43,7 @@
                     @Html.DisplayFor(modelItem => item.Car.CarDescription)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.CarRentalUser.FirstName)
+                    @Html.DisplayFor(modelItem => item.CarRentalUser.FullName)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.DateOfRent)
@@ -58,12 +58,17 @@
                     @Html.DisplayFor(modelItem => item.Price)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Returned)
-                </td>
+                    @*@(item.Returned == true ? "Car is Returned" : "Car not Returned.")*@
+                    @if (item.Returned == true)
+                    {
+                        <b style="color:green">Car is Returned.</b>
+                    }
+                    else
+                    {
+                        <b style="color:red">Car not Returned.</b>
+                    }
                 <td>
-                    @Html.ActionLink("ReturnCar", "ReturnCar", new { id = item.RentID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.RentID }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.RentID })
+                    @Html.ActionLink("ReturnCar", "ReturnCar", new { id = item.RentID }) 
                 </td>
             </tr>
         }

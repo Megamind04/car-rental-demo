@@ -13,7 +13,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CarRentalDemo.Web.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize]
     public class RentsController : Controller
     {
         private CarRentalDemoDb contextDb = new CarRentalDemoDb();
@@ -26,6 +26,10 @@ namespace CarRentalDemo.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Car selectedCar = contextDb.Cars.Find(id);
+            if(selectedCar.Available == false)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Car is not Available!!!");
+            }
             Rent rentCar = new Rent() { CarID = selectedCar.CarID };
             rentCar.CreateDate = DateTime.Now;
 
@@ -35,7 +39,7 @@ namespace CarRentalDemo.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SelectedCar([Bind(Include = "CarID,DateOfRent,DateOfReturn")] Rent RentedCar)
+        public ActionResult SelectedCar([Bind(Include = "CarID,DateOfRent,DateOfReturn,CreateDate")] Rent RentedCar)
         {
             Car selectedCar = contextDb.Cars.Find(RentedCar.CarID);
             TempData["RentedCar"] = RentedCar;
@@ -70,7 +74,7 @@ namespace CarRentalDemo.Web.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult RentCar([Bind(Include = "CarID,DateOfRent,DateOfReturn,PayMetod,Price")] Rent RentedCar)
+        public ActionResult RentCar([Bind(Include = "CarID,DateOfRent,DateOfReturn,CreateDate,PayMetod,Price")] Rent RentedCar)
         {
             RentedCar.Returned = false;
             var userce = User.Identity.GetUserId();

@@ -60,7 +60,7 @@ namespace CarRentalDemo.Web.Controllers
                 {
                     contextDb.CarBrands.Add(carBrand);
                     contextDb.SaveChanges();
-                    return RedirectToAction("Index","Admin");
+                    return RedirectToAction("Index");
                 }
             }
             catch (DataException)
@@ -100,7 +100,7 @@ namespace CarRentalDemo.Web.Controllers
                 try
                 {
                     contextDb.SaveChanges();
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("Index");
                 }
                 catch (DataException)
                 {
@@ -143,7 +143,7 @@ namespace CarRentalDemo.Web.Controllers
             {
                 return RedirectToAction("Delete", new { id = id, saveChangesError = true });
             }
-            return RedirectToAction("Index","Admin");
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

@@ -50,16 +50,15 @@ namespace CarRentalDemo.Entities
 
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
-            if (DateOfRent > DateOfReturn)
-            {
-                yield return new ValidationResult("Date of return must be after date of rent.", new[] { "DateOfReturn" });
-            }
-
             if (DateOfRent < CreateDate)
             {
                 yield return new ValidationResult("Rent date can not be greater than current date.", new[] { "DateOfRent" });
             }
 
+            if (DateOfRent > DateOfReturn)
+            {
+                yield return new ValidationResult("Date of return must be after date of rent.", new[] { "DateOfReturn" });
+            }
         }
     }
 

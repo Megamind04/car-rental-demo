@@ -25,7 +25,7 @@ namespace CarRentalDemo.Web.Controllers
         {
             List<Car> cars = contextDb.Cars.Include(c => c.CarBrand).ToList();
 
-            int pageSize = 3;
+            int pageSize = 6;
             int pageNumber = (page ?? 1);
 
             return View(cars.ToPagedList(pageNumber, pageSize));
@@ -70,7 +70,7 @@ namespace CarRentalDemo.Web.Controllers
                 {
                     contextDb.Cars.Add(car);
                     contextDb.SaveChanges();
-                    return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("Index");
                 }
             }
             catch (DataException)
@@ -114,7 +114,7 @@ namespace CarRentalDemo.Web.Controllers
                 {
                     contextDb.SaveChanges();
 
-                    return RedirectToAction("Index","Admin");
+                    return RedirectToAction("Index");
                 }
                 catch (DataException )
                 {
@@ -158,7 +158,7 @@ namespace CarRentalDemo.Web.Controllers
             {
                 return RedirectToAction("Delete", new { id = id, saveChangesError = true });
             }
-            return RedirectToAction("Index","Admin");
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
